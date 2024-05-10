@@ -8,7 +8,9 @@ pipeline {
                 script {
                     sh 'python3 -m venv lab2/.venv'
                     sh 'source lab2/.venv/bin/activate'
-                    sh 'lab2/.venv/bin/pip install -r lab2/requirements.txt'
+                    sh 'echo "venv activated"'
+                    sh 'echo $PATH'
+                    sh 'lpip install -r lab2/requirements.txt'
                 }
             }
         }
