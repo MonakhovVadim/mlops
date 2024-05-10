@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Настройка виртуального окружения.') {
+            steps {
+                script {
+                    sh 'python3 -m venv lab2/.venv'
+                    sh 'source lab2/.venv/bin/activate'
+                    sh 'pip3 install -r lab2/requirements.txt'
+                }
+            }
+        }
+
+        stage('Генерация данных') {
+            steps {
+                script {
+                    sh 'python3 lab2/src/data_creation.py'
+                }
+            }
+        }
+
+        stage('Предобработка данных') {
+            steps {
+                script {
+                    sh 'python3 lab2/src/model_preparation.py'
+                }
+            }
+        }
+
+        stage('Обучение модели') {
+            steps {
+                script {
+                    sh 'python3 lab2/src/model_preprocessing.py'
+                }
+            }
+        }
+
+        stage('Проверка обученной модели на тестовых данных.') {
+            steps {
+                script {
+                    sh 'python3 lab2/src/model_testing.py'
+                }
+            }
+        }
+
+        stage('Завершение') {
+            steps {
+                script {
+                    echo 'Работа скриптов завершена'
+                }
+            }
+        }
+    }
+}
