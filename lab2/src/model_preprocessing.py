@@ -15,8 +15,11 @@ def main():
     test_data = pd.read_csv(data_directory + "/test/test_data.csv")
 
     # Используем MinMaxScaler, чтобы не было отрицательных значений
+
     scaler = MinMaxScaler()
-    train_data["value"] = scaler.fit_transform(train_data[["value"]])
+    scaler.fit_transform(pd.concat([train_data[["value"]], test_data[["value"]]]))
+
+    train_data["value"] = scaler.transform(train_data[["value"]])
     test_data["value"] = scaler.transform(test_data[["value"]])
 
     # Сохраняем предобработанные данные
