@@ -64,15 +64,15 @@ def main():
 
     current_file = os.path.realpath(__file__)
     current_directory = os.path.dirname(current_file)
-    data_directory = os.path.split(current_directory)[0] / "data"
+    data_directory = os.path.split(current_directory)[0] + "/data"
 
     print(current_file)
     print(current_directory)
     print(data_directory)
 
     # Создаем папки
-    os.makedirs(data_directory / "train", exist_ok=True)
-    os.makedirs(data_directory / "test", exist_ok=True)
+    os.makedirs(data_directory + "/train", exist_ok=True)
+    os.makedirs(data_directory + "/test", exist_ok=True)
 
     # Генерируем курс валюты на ближайший год
     count = 365
@@ -86,7 +86,7 @@ def main():
     # Сохраняем данные в соответствующие папки
     data.iloc[test_indexes].to_csv(data_directory + "/test/test_data.csv", index=False)
     data.iloc[train_indexes].to_csv(
-        data_directory / "train/train_data.csv", index=False
+        data_directory + "/train/train_data.csv", index=False
     )
 
 
