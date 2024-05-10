@@ -8,13 +8,6 @@ pipeline {
                 script {
                     sh 'python3 -m venv lab2/.venv'
                     sh 'source lab2/.venv/bin/activate'
-                }
-            }
-        }
-
-        stage('Установка зависимостей') {
-            steps {
-                script {
                     sh 'pip install -r lab2/requirements.txt'
                 }
             }
