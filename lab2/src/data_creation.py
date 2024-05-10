@@ -64,7 +64,7 @@ def main():
 
     current_file = os.path.realpath(__file__)
     current_directory = os.path.dirname(current_file)
-    data_directory = os.path.split(current_directory)[0] + "/data"
+    data_directory = os.path.split(current_directory)[0] / "data"
 
     print(current_file)
     print(current_directory)
@@ -84,7 +84,7 @@ def main():
     train_indexes = [x for x in all_indexes if not x in test_indexes]
 
     # Сохраняем данные в соответствующие папки
-    data.iloc[test_indexes].to_csv(data_directory / "test/test_data.csv", index=False)
+    data.iloc[test_indexes].to_csv(data_directory + "/test/test_data.csv", index=False)
     data.iloc[train_indexes].to_csv(
         data_directory / "train/train_data.csv", index=False
     )
