@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    venv_dir = lab2/.venv
+                    venv_dir=lab2/.venv
                     python3 -m venv $venv_dir               
                     source $venv_dir/bin/activate
                     pip3 install -r lab2/requirements.txt
