@@ -71,8 +71,8 @@ def main():
     print(data_directory)
 
     # Создаем папки
-    os.makedirs("f{data_directory}/train", exist_ok=True)
-    os.makedirs("f{data_directory}/test", exist_ok=True)
+    os.makedirs(data_directory / "train", exist_ok=True)
+    os.makedirs(data_directory / "test", exist_ok=True)
 
     # Генерируем курс валюты на ближайший год
     count = 365
@@ -84,9 +84,9 @@ def main():
     train_indexes = [x for x in all_indexes if not x in test_indexes]
 
     # Сохраняем данные в соответствующие папки
-    data.iloc[test_indexes].to_csv("f{data_directory}/test/test_data.csv", index=False)
+    data.iloc[test_indexes].to_csv(data_directory / "test/test_data.csv", index=False)
     data.iloc[train_indexes].to_csv(
-        "f{data_directory}/train/train_data.csv", index=False
+        data_directory / "train/train_data.csv", index=False
     )
 
 
