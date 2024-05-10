@@ -27,7 +27,7 @@ pipeline {
         stage('Предобработка данных') {
             steps {
                 script {
-                    sh 'lab2/.venv/bin/python3 lab2/src/model_preparation.py'
+                    sh 'lab2/.venv/bin/python3 lab2/src/model_preprocessing.py'
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
         stage('Обучение модели') {
             steps {
                 script {
-                    sh 'lab2/.venv/bin/python3 lab2/src/model_preprocessing.py'
+                    sh 'lab2/.venv/bin/python3 lab2/src/model_preparation.py'
                 }
             }
         }
