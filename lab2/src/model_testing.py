@@ -1,3 +1,5 @@
+import os
+
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 
@@ -6,9 +8,14 @@ import joblib
 
 
 def main():
+
+    current_file = os.path.realpath(__file__)
+    current_directory = os.path.dirname(current_file)
+    data_directory = os.path.split(current_directory)[0] + "/data"
+
     # Загружаем модель и данные для тестов
-    model = joblib.load("../data/model/model.pkl")
-    test_data = pd.read_csv("../data/test/test_data_preprocessed.csv")
+    model = joblib.load(data_directory + "/model/model.pkl")
+    test_data = pd.read_csv(data_directory + "/test/test_data_preprocessed.csv")
     X_test, y_test = test_data[["day"]], test_data["value"]
 
     # Оценка модели

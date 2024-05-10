@@ -66,10 +66,6 @@ def main():
     current_directory = os.path.dirname(current_file)
     data_directory = os.path.split(current_directory)[0] + "/data"
 
-    print(current_file)
-    print(current_directory)
-    print(data_directory)
-
     # Создаем папки
     os.makedirs(data_directory + "/train", exist_ok=True)
     os.makedirs(data_directory + "/test", exist_ok=True)
