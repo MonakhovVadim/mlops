@@ -6,11 +6,10 @@ pipeline {
         stage('Настройка виртуального окружения') {
             steps {
                 script {
-                    sh 'python3 -m venv lab2/.venv'
-                    sh 'source lab2/.venv/bin/activate'
-                    sh 'echo "venv activated"'
-                    sh 'echo $PATH'
-                    sh 'lpip install -r lab2/requirements.txt'
+                    sh 'python3 -m venv lab2/.venv'               
+                    sh 'chmod +x lab2/venv/bin/activate'
+                    sh 'lab2/venv/bin/activate'
+                    sh 'pip3 install -r lab2/requirements.txt'
                 }
             }
         }
