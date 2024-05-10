@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo $PATH'
-                    sh 'python3 lab2/src/data_creation.py'
+                    sh 'lab2/.venv/bin/python3 lab2/src/data_creation.py'
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
         stage('Предобработка данных') {
             steps {
                 script {
-                    sh 'python3 lab2/src/model_preparation.py'
+                    sh 'lab2/.venv/bin/python3 lab2/src/model_preparation.py'
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Обучение модели') {
             steps {
                 script {
-                    sh 'python3 lab2/src/model_preprocessing.py'
+                    sh 'lab2/.venv/bin/python3 lab2/src/model_preprocessing.py'
                 }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
         stage('Проверка обученной модели на тестовых данных.') {
             steps {
                 script {
-                    sh 'python3 lab2/src/model_testing.py'
+                    sh 'lab2/.venv/bin/python3 lab2/src/model_testing.py'
                 }
             }
         }
