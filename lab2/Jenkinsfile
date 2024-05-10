@@ -19,6 +19,7 @@ pipeline {
         stage('Генерация данных') {
             steps {
                 script {
+                    sh 'echo $PATH'
                     sh 'python3 lab2/src/data_creation.py'
                 }
             }
