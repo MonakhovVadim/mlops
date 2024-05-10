@@ -1,7 +1,7 @@
 import os
 
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 import joblib
 
 
@@ -19,7 +19,8 @@ def main():
     X, y = data[["day"]], data["value"]
 
     # Обучаем модель
-    model = LinearRegression()
+
+    model = RandomForestRegressor(max_depth=2, random_state=0)
     model.fit(X, y)
 
     # Сохраняем модель
