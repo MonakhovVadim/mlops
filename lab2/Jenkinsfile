@@ -7,8 +7,8 @@ pipeline {
             steps {
                 script {
                     sh 'python3 -m venv lab2/.venv'               
-                    sh 'chmod +x lab2/venv/bin/activate'
-                    sh 'lab2/venv/bin/activate'
+                    sh 'chmod +x lab2/.venv/bin/activate'
+                    sh 'lab2/.venv/bin/activate'
                     sh 'pip3 install -r lab2/requirements.txt'
                 }
             }
