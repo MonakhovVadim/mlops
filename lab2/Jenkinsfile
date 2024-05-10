@@ -16,19 +16,10 @@ pipeline {
             }
         }
 
-        stage('Переход в папку скриптов') {
-            steps {
-                script {
-                    sh 'cd lab2/src'
-                }
-            }
-        }
-
         stage('Генерация данных') {
             steps {
                 script {
-                    sh '''cd lab2/src
-                    lab2/.venv/bin/python3 data_creation.py'''
+                    sh 'lab2/.venv/bin/python3 data_creation.py'
                 }
             }
         }
