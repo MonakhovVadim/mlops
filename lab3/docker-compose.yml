@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    image: lab3_img
+    container_name: lab3_cnt
+    ports:
+      - "8501:8501"
